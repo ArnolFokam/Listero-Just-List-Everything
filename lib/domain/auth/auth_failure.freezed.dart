@@ -24,13 +24,18 @@ class _$AuthFailureTearOff {
   }
 
 // ignore: unused_element
-  WrongPhoneVerificationCode wrongPhoneVerificationCode() {
-    return const WrongPhoneVerificationCode();
+  WrongVerificationCode wrongVerificationCode() {
+    return const WrongVerificationCode();
   }
 
 // ignore: unused_element
-  ExpiredPhoneVerificationCode expiredPhoneVerificationCode() {
-    return const ExpiredPhoneVerificationCode();
+  InvalidPhoneNumber invalidPhoneNumber() {
+    return const InvalidPhoneNumber();
+  }
+
+// ignore: unused_element
+  PhoneNumberAlreadyInUse phoneNumberAlreadyInUse() {
+    return const PhoneNumberAlreadyInUse();
   }
 }
 
@@ -44,36 +49,34 @@ mixin _$AuthFailure {
   TResult when<TResult extends Object>({
     @required TResult cancelledByUser(),
     @required TResult serverError(),
-    @required TResult wrongPhoneVerificationCode(),
-    @required TResult expiredPhoneVerificationCode(),
+    @required TResult wrongVerificationCode(),
+    @required TResult invalidPhoneNumber(),
+    @required TResult phoneNumberAlreadyInUse(),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult cancelledByUser(),
     TResult serverError(),
-    TResult wrongPhoneVerificationCode(),
-    TResult expiredPhoneVerificationCode(),
+    TResult wrongVerificationCode(),
+    TResult invalidPhoneNumber(),
+    TResult phoneNumberAlreadyInUse(),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult cancelledByUser(CancelledByUser value),
     @required TResult serverError(ServerError value),
-    @required
-        TResult wrongPhoneVerificationCode(WrongPhoneVerificationCode value),
-    @required
-        TResult expiredPhoneVerificationCode(
-            ExpiredPhoneVerificationCode value),
+    @required TResult wrongVerificationCode(WrongVerificationCode value),
+    @required TResult invalidPhoneNumber(InvalidPhoneNumber value),
+    @required TResult phoneNumberAlreadyInUse(PhoneNumberAlreadyInUse value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult cancelledByUser(CancelledByUser value),
     TResult serverError(ServerError value),
-    TResult wrongPhoneVerificationCode(WrongPhoneVerificationCode value),
-    TResult expiredPhoneVerificationCode(ExpiredPhoneVerificationCode value),
+    TResult wrongVerificationCode(WrongVerificationCode value),
+    TResult invalidPhoneNumber(InvalidPhoneNumber value),
+    TResult phoneNumberAlreadyInUse(PhoneNumberAlreadyInUse value),
     @required TResult orElse(),
   });
 }
@@ -90,7 +93,6 @@ class _$AuthFailureCopyWithImpl<$Res> implements $AuthFailureCopyWith<$Res> {
   _$AuthFailureCopyWithImpl(this._value, this._then);
 
   final AuthFailure _value;
-
   // ignore: unused_field
   final $Res Function(AuthFailure) _then;
 }
@@ -136,13 +138,15 @@ class _$CancelledByUser implements CancelledByUser {
   TResult when<TResult extends Object>({
     @required TResult cancelledByUser(),
     @required TResult serverError(),
-    @required TResult wrongPhoneVerificationCode(),
-    @required TResult expiredPhoneVerificationCode(),
+    @required TResult wrongVerificationCode(),
+    @required TResult invalidPhoneNumber(),
+    @required TResult phoneNumberAlreadyInUse(),
   }) {
     assert(cancelledByUser != null);
     assert(serverError != null);
-    assert(wrongPhoneVerificationCode != null);
-    assert(expiredPhoneVerificationCode != null);
+    assert(wrongVerificationCode != null);
+    assert(invalidPhoneNumber != null);
+    assert(phoneNumberAlreadyInUse != null);
     return cancelledByUser();
   }
 
@@ -151,8 +155,9 @@ class _$CancelledByUser implements CancelledByUser {
   TResult maybeWhen<TResult extends Object>({
     TResult cancelledByUser(),
     TResult serverError(),
-    TResult wrongPhoneVerificationCode(),
-    TResult expiredPhoneVerificationCode(),
+    TResult wrongVerificationCode(),
+    TResult invalidPhoneNumber(),
+    TResult phoneNumberAlreadyInUse(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -167,16 +172,15 @@ class _$CancelledByUser implements CancelledByUser {
   TResult map<TResult extends Object>({
     @required TResult cancelledByUser(CancelledByUser value),
     @required TResult serverError(ServerError value),
-    @required
-        TResult wrongPhoneVerificationCode(WrongPhoneVerificationCode value),
-    @required
-        TResult expiredPhoneVerificationCode(
-            ExpiredPhoneVerificationCode value),
+    @required TResult wrongVerificationCode(WrongVerificationCode value),
+    @required TResult invalidPhoneNumber(InvalidPhoneNumber value),
+    @required TResult phoneNumberAlreadyInUse(PhoneNumberAlreadyInUse value),
   }) {
     assert(cancelledByUser != null);
     assert(serverError != null);
-    assert(wrongPhoneVerificationCode != null);
-    assert(expiredPhoneVerificationCode != null);
+    assert(wrongVerificationCode != null);
+    assert(invalidPhoneNumber != null);
+    assert(phoneNumberAlreadyInUse != null);
     return cancelledByUser(this);
   }
 
@@ -185,8 +189,9 @@ class _$CancelledByUser implements CancelledByUser {
   TResult maybeMap<TResult extends Object>({
     TResult cancelledByUser(CancelledByUser value),
     TResult serverError(ServerError value),
-    TResult wrongPhoneVerificationCode(WrongPhoneVerificationCode value),
-    TResult expiredPhoneVerificationCode(ExpiredPhoneVerificationCode value),
+    TResult wrongVerificationCode(WrongVerificationCode value),
+    TResult invalidPhoneNumber(InvalidPhoneNumber value),
+    TResult phoneNumberAlreadyInUse(PhoneNumberAlreadyInUse value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -241,13 +246,15 @@ class _$ServerError implements ServerError {
   TResult when<TResult extends Object>({
     @required TResult cancelledByUser(),
     @required TResult serverError(),
-    @required TResult wrongPhoneVerificationCode(),
-    @required TResult expiredPhoneVerificationCode(),
+    @required TResult wrongVerificationCode(),
+    @required TResult invalidPhoneNumber(),
+    @required TResult phoneNumberAlreadyInUse(),
   }) {
     assert(cancelledByUser != null);
     assert(serverError != null);
-    assert(wrongPhoneVerificationCode != null);
-    assert(expiredPhoneVerificationCode != null);
+    assert(wrongVerificationCode != null);
+    assert(invalidPhoneNumber != null);
+    assert(phoneNumberAlreadyInUse != null);
     return serverError();
   }
 
@@ -256,8 +263,9 @@ class _$ServerError implements ServerError {
   TResult maybeWhen<TResult extends Object>({
     TResult cancelledByUser(),
     TResult serverError(),
-    TResult wrongPhoneVerificationCode(),
-    TResult expiredPhoneVerificationCode(),
+    TResult wrongVerificationCode(),
+    TResult invalidPhoneNumber(),
+    TResult phoneNumberAlreadyInUse(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -272,16 +280,15 @@ class _$ServerError implements ServerError {
   TResult map<TResult extends Object>({
     @required TResult cancelledByUser(CancelledByUser value),
     @required TResult serverError(ServerError value),
-    @required
-        TResult wrongPhoneVerificationCode(WrongPhoneVerificationCode value),
-    @required
-        TResult expiredPhoneVerificationCode(
-            ExpiredPhoneVerificationCode value),
+    @required TResult wrongVerificationCode(WrongVerificationCode value),
+    @required TResult invalidPhoneNumber(InvalidPhoneNumber value),
+    @required TResult phoneNumberAlreadyInUse(PhoneNumberAlreadyInUse value),
   }) {
     assert(cancelledByUser != null);
     assert(serverError != null);
-    assert(wrongPhoneVerificationCode != null);
-    assert(expiredPhoneVerificationCode != null);
+    assert(wrongVerificationCode != null);
+    assert(invalidPhoneNumber != null);
+    assert(phoneNumberAlreadyInUse != null);
     return serverError(this);
   }
 
@@ -290,8 +297,9 @@ class _$ServerError implements ServerError {
   TResult maybeMap<TResult extends Object>({
     TResult cancelledByUser(CancelledByUser value),
     TResult serverError(ServerError value),
-    TResult wrongPhoneVerificationCode(WrongPhoneVerificationCode value),
-    TResult expiredPhoneVerificationCode(ExpiredPhoneVerificationCode value),
+    TResult wrongVerificationCode(WrongVerificationCode value),
+    TResult invalidPhoneNumber(InvalidPhoneNumber value),
+    TResult phoneNumberAlreadyInUse(PhoneNumberAlreadyInUse value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -307,37 +315,36 @@ abstract class ServerError implements AuthFailure {
 }
 
 /// @nodoc
-abstract class $WrongPhoneVerificationCodeCopyWith<$Res> {
-  factory $WrongPhoneVerificationCodeCopyWith(WrongPhoneVerificationCode value,
-          $Res Function(WrongPhoneVerificationCode) then) =
-      _$WrongPhoneVerificationCodeCopyWithImpl<$Res>;
+abstract class $WrongVerificationCodeCopyWith<$Res> {
+  factory $WrongVerificationCodeCopyWith(WrongVerificationCode value,
+          $Res Function(WrongVerificationCode) then) =
+      _$WrongVerificationCodeCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$WrongPhoneVerificationCodeCopyWithImpl<$Res>
+class _$WrongVerificationCodeCopyWithImpl<$Res>
     extends _$AuthFailureCopyWithImpl<$Res>
-    implements $WrongPhoneVerificationCodeCopyWith<$Res> {
-  _$WrongPhoneVerificationCodeCopyWithImpl(WrongPhoneVerificationCode _value,
-      $Res Function(WrongPhoneVerificationCode) _then)
-      : super(_value, (v) => _then(v as WrongPhoneVerificationCode));
+    implements $WrongVerificationCodeCopyWith<$Res> {
+  _$WrongVerificationCodeCopyWithImpl(
+      WrongVerificationCode _value, $Res Function(WrongVerificationCode) _then)
+      : super(_value, (v) => _then(v as WrongVerificationCode));
 
   @override
-  WrongPhoneVerificationCode get _value =>
-      super._value as WrongPhoneVerificationCode;
+  WrongVerificationCode get _value => super._value as WrongVerificationCode;
 }
 
 /// @nodoc
-class _$WrongPhoneVerificationCode implements WrongPhoneVerificationCode {
-  const _$WrongPhoneVerificationCode();
+class _$WrongVerificationCode implements WrongVerificationCode {
+  const _$WrongVerificationCode();
 
   @override
   String toString() {
-    return 'AuthFailure.wrongPhoneVerificationCode()';
+    return 'AuthFailure.wrongVerificationCode()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is WrongPhoneVerificationCode);
+    return identical(this, other) || (other is WrongVerificationCode);
   }
 
   @override
@@ -348,14 +355,16 @@ class _$WrongPhoneVerificationCode implements WrongPhoneVerificationCode {
   TResult when<TResult extends Object>({
     @required TResult cancelledByUser(),
     @required TResult serverError(),
-    @required TResult wrongPhoneVerificationCode(),
-    @required TResult expiredPhoneVerificationCode(),
+    @required TResult wrongVerificationCode(),
+    @required TResult invalidPhoneNumber(),
+    @required TResult phoneNumberAlreadyInUse(),
   }) {
     assert(cancelledByUser != null);
     assert(serverError != null);
-    assert(wrongPhoneVerificationCode != null);
-    assert(expiredPhoneVerificationCode != null);
-    return wrongPhoneVerificationCode();
+    assert(wrongVerificationCode != null);
+    assert(invalidPhoneNumber != null);
+    assert(phoneNumberAlreadyInUse != null);
+    return wrongVerificationCode();
   }
 
   @override
@@ -363,13 +372,14 @@ class _$WrongPhoneVerificationCode implements WrongPhoneVerificationCode {
   TResult maybeWhen<TResult extends Object>({
     TResult cancelledByUser(),
     TResult serverError(),
-    TResult wrongPhoneVerificationCode(),
-    TResult expiredPhoneVerificationCode(),
+    TResult wrongVerificationCode(),
+    TResult invalidPhoneNumber(),
+    TResult phoneNumberAlreadyInUse(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (wrongPhoneVerificationCode != null) {
-      return wrongPhoneVerificationCode();
+    if (wrongVerificationCode != null) {
+      return wrongVerificationCode();
     }
     return orElse();
   }
@@ -379,17 +389,16 @@ class _$WrongPhoneVerificationCode implements WrongPhoneVerificationCode {
   TResult map<TResult extends Object>({
     @required TResult cancelledByUser(CancelledByUser value),
     @required TResult serverError(ServerError value),
-    @required
-        TResult wrongPhoneVerificationCode(WrongPhoneVerificationCode value),
-    @required
-        TResult expiredPhoneVerificationCode(
-            ExpiredPhoneVerificationCode value),
+    @required TResult wrongVerificationCode(WrongVerificationCode value),
+    @required TResult invalidPhoneNumber(InvalidPhoneNumber value),
+    @required TResult phoneNumberAlreadyInUse(PhoneNumberAlreadyInUse value),
   }) {
     assert(cancelledByUser != null);
     assert(serverError != null);
-    assert(wrongPhoneVerificationCode != null);
-    assert(expiredPhoneVerificationCode != null);
-    return wrongPhoneVerificationCode(this);
+    assert(wrongVerificationCode != null);
+    assert(invalidPhoneNumber != null);
+    assert(phoneNumberAlreadyInUse != null);
+    return wrongVerificationCode(this);
   }
 
   @override
@@ -397,56 +406,54 @@ class _$WrongPhoneVerificationCode implements WrongPhoneVerificationCode {
   TResult maybeMap<TResult extends Object>({
     TResult cancelledByUser(CancelledByUser value),
     TResult serverError(ServerError value),
-    TResult wrongPhoneVerificationCode(WrongPhoneVerificationCode value),
-    TResult expiredPhoneVerificationCode(ExpiredPhoneVerificationCode value),
+    TResult wrongVerificationCode(WrongVerificationCode value),
+    TResult invalidPhoneNumber(InvalidPhoneNumber value),
+    TResult phoneNumberAlreadyInUse(PhoneNumberAlreadyInUse value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (wrongPhoneVerificationCode != null) {
-      return wrongPhoneVerificationCode(this);
+    if (wrongVerificationCode != null) {
+      return wrongVerificationCode(this);
     }
     return orElse();
   }
 }
 
-abstract class WrongPhoneVerificationCode implements AuthFailure {
-  const factory WrongPhoneVerificationCode() = _$WrongPhoneVerificationCode;
+abstract class WrongVerificationCode implements AuthFailure {
+  const factory WrongVerificationCode() = _$WrongVerificationCode;
 }
 
 /// @nodoc
-abstract class $ExpiredPhoneVerificationCodeCopyWith<$Res> {
-  factory $ExpiredPhoneVerificationCodeCopyWith(
-          ExpiredPhoneVerificationCode value,
-          $Res Function(ExpiredPhoneVerificationCode) then) =
-      _$ExpiredPhoneVerificationCodeCopyWithImpl<$Res>;
+abstract class $InvalidPhoneNumberCopyWith<$Res> {
+  factory $InvalidPhoneNumberCopyWith(
+          InvalidPhoneNumber value, $Res Function(InvalidPhoneNumber) then) =
+      _$InvalidPhoneNumberCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ExpiredPhoneVerificationCodeCopyWithImpl<$Res>
+class _$InvalidPhoneNumberCopyWithImpl<$Res>
     extends _$AuthFailureCopyWithImpl<$Res>
-    implements $ExpiredPhoneVerificationCodeCopyWith<$Res> {
-  _$ExpiredPhoneVerificationCodeCopyWithImpl(
-      ExpiredPhoneVerificationCode _value,
-      $Res Function(ExpiredPhoneVerificationCode) _then)
-      : super(_value, (v) => _then(v as ExpiredPhoneVerificationCode));
+    implements $InvalidPhoneNumberCopyWith<$Res> {
+  _$InvalidPhoneNumberCopyWithImpl(
+      InvalidPhoneNumber _value, $Res Function(InvalidPhoneNumber) _then)
+      : super(_value, (v) => _then(v as InvalidPhoneNumber));
 
   @override
-  ExpiredPhoneVerificationCode get _value =>
-      super._value as ExpiredPhoneVerificationCode;
+  InvalidPhoneNumber get _value => super._value as InvalidPhoneNumber;
 }
 
 /// @nodoc
-class _$ExpiredPhoneVerificationCode implements ExpiredPhoneVerificationCode {
-  const _$ExpiredPhoneVerificationCode();
+class _$InvalidPhoneNumber implements InvalidPhoneNumber {
+  const _$InvalidPhoneNumber();
 
   @override
   String toString() {
-    return 'AuthFailure.expiredPhoneVerificationCode()';
+    return 'AuthFailure.invalidPhoneNumber()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ExpiredPhoneVerificationCode);
+    return identical(this, other) || (other is InvalidPhoneNumber);
   }
 
   @override
@@ -457,14 +464,16 @@ class _$ExpiredPhoneVerificationCode implements ExpiredPhoneVerificationCode {
   TResult when<TResult extends Object>({
     @required TResult cancelledByUser(),
     @required TResult serverError(),
-    @required TResult wrongPhoneVerificationCode(),
-    @required TResult expiredPhoneVerificationCode(),
+    @required TResult wrongVerificationCode(),
+    @required TResult invalidPhoneNumber(),
+    @required TResult phoneNumberAlreadyInUse(),
   }) {
     assert(cancelledByUser != null);
     assert(serverError != null);
-    assert(wrongPhoneVerificationCode != null);
-    assert(expiredPhoneVerificationCode != null);
-    return expiredPhoneVerificationCode();
+    assert(wrongVerificationCode != null);
+    assert(invalidPhoneNumber != null);
+    assert(phoneNumberAlreadyInUse != null);
+    return invalidPhoneNumber();
   }
 
   @override
@@ -472,13 +481,14 @@ class _$ExpiredPhoneVerificationCode implements ExpiredPhoneVerificationCode {
   TResult maybeWhen<TResult extends Object>({
     TResult cancelledByUser(),
     TResult serverError(),
-    TResult wrongPhoneVerificationCode(),
-    TResult expiredPhoneVerificationCode(),
+    TResult wrongVerificationCode(),
+    TResult invalidPhoneNumber(),
+    TResult phoneNumberAlreadyInUse(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (expiredPhoneVerificationCode != null) {
-      return expiredPhoneVerificationCode();
+    if (invalidPhoneNumber != null) {
+      return invalidPhoneNumber();
     }
     return orElse();
   }
@@ -488,17 +498,16 @@ class _$ExpiredPhoneVerificationCode implements ExpiredPhoneVerificationCode {
   TResult map<TResult extends Object>({
     @required TResult cancelledByUser(CancelledByUser value),
     @required TResult serverError(ServerError value),
-    @required
-        TResult wrongPhoneVerificationCode(WrongPhoneVerificationCode value),
-    @required
-        TResult expiredPhoneVerificationCode(
-            ExpiredPhoneVerificationCode value),
+    @required TResult wrongVerificationCode(WrongVerificationCode value),
+    @required TResult invalidPhoneNumber(InvalidPhoneNumber value),
+    @required TResult phoneNumberAlreadyInUse(PhoneNumberAlreadyInUse value),
   }) {
     assert(cancelledByUser != null);
     assert(serverError != null);
-    assert(wrongPhoneVerificationCode != null);
-    assert(expiredPhoneVerificationCode != null);
-    return expiredPhoneVerificationCode(this);
+    assert(wrongVerificationCode != null);
+    assert(invalidPhoneNumber != null);
+    assert(phoneNumberAlreadyInUse != null);
+    return invalidPhoneNumber(this);
   }
 
   @override
@@ -506,18 +515,128 @@ class _$ExpiredPhoneVerificationCode implements ExpiredPhoneVerificationCode {
   TResult maybeMap<TResult extends Object>({
     TResult cancelledByUser(CancelledByUser value),
     TResult serverError(ServerError value),
-    TResult wrongPhoneVerificationCode(WrongPhoneVerificationCode value),
-    TResult expiredPhoneVerificationCode(ExpiredPhoneVerificationCode value),
+    TResult wrongVerificationCode(WrongVerificationCode value),
+    TResult invalidPhoneNumber(InvalidPhoneNumber value),
+    TResult phoneNumberAlreadyInUse(PhoneNumberAlreadyInUse value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (expiredPhoneVerificationCode != null) {
-      return expiredPhoneVerificationCode(this);
+    if (invalidPhoneNumber != null) {
+      return invalidPhoneNumber(this);
     }
     return orElse();
   }
 }
 
-abstract class ExpiredPhoneVerificationCode implements AuthFailure {
-  const factory ExpiredPhoneVerificationCode() = _$ExpiredPhoneVerificationCode;
+abstract class InvalidPhoneNumber implements AuthFailure {
+  const factory InvalidPhoneNumber() = _$InvalidPhoneNumber;
+}
+
+/// @nodoc
+abstract class $PhoneNumberAlreadyInUseCopyWith<$Res> {
+  factory $PhoneNumberAlreadyInUseCopyWith(PhoneNumberAlreadyInUse value,
+          $Res Function(PhoneNumberAlreadyInUse) then) =
+      _$PhoneNumberAlreadyInUseCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$PhoneNumberAlreadyInUseCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $PhoneNumberAlreadyInUseCopyWith<$Res> {
+  _$PhoneNumberAlreadyInUseCopyWithImpl(PhoneNumberAlreadyInUse _value,
+      $Res Function(PhoneNumberAlreadyInUse) _then)
+      : super(_value, (v) => _then(v as PhoneNumberAlreadyInUse));
+
+  @override
+  PhoneNumberAlreadyInUse get _value => super._value as PhoneNumberAlreadyInUse;
+}
+
+/// @nodoc
+class _$PhoneNumberAlreadyInUse implements PhoneNumberAlreadyInUse {
+  const _$PhoneNumberAlreadyInUse();
+
+  @override
+  String toString() {
+    return 'AuthFailure.phoneNumberAlreadyInUse()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is PhoneNumberAlreadyInUse);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult cancelledByUser(),
+    @required TResult serverError(),
+    @required TResult wrongVerificationCode(),
+    @required TResult invalidPhoneNumber(),
+    @required TResult phoneNumberAlreadyInUse(),
+  }) {
+    assert(cancelledByUser != null);
+    assert(serverError != null);
+    assert(wrongVerificationCode != null);
+    assert(invalidPhoneNumber != null);
+    assert(phoneNumberAlreadyInUse != null);
+    return phoneNumberAlreadyInUse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult cancelledByUser(),
+    TResult serverError(),
+    TResult wrongVerificationCode(),
+    TResult invalidPhoneNumber(),
+    TResult phoneNumberAlreadyInUse(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (phoneNumberAlreadyInUse != null) {
+      return phoneNumberAlreadyInUse();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult cancelledByUser(CancelledByUser value),
+    @required TResult serverError(ServerError value),
+    @required TResult wrongVerificationCode(WrongVerificationCode value),
+    @required TResult invalidPhoneNumber(InvalidPhoneNumber value),
+    @required TResult phoneNumberAlreadyInUse(PhoneNumberAlreadyInUse value),
+  }) {
+    assert(cancelledByUser != null);
+    assert(serverError != null);
+    assert(wrongVerificationCode != null);
+    assert(invalidPhoneNumber != null);
+    assert(phoneNumberAlreadyInUse != null);
+    return phoneNumberAlreadyInUse(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult cancelledByUser(CancelledByUser value),
+    TResult serverError(ServerError value),
+    TResult wrongVerificationCode(WrongVerificationCode value),
+    TResult invalidPhoneNumber(InvalidPhoneNumber value),
+    TResult phoneNumberAlreadyInUse(PhoneNumberAlreadyInUse value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (phoneNumberAlreadyInUse != null) {
+      return phoneNumberAlreadyInUse(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PhoneNumberAlreadyInUse implements AuthFailure {
+  const factory PhoneNumberAlreadyInUse() = _$PhoneNumberAlreadyInUse;
 }

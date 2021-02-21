@@ -33,18 +33,15 @@ mixin _$ValueFailure<T> {
   TResult when<TResult extends Object>({
     @required TResult invalidPhoneNumber(T failedValue),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult invalidPhoneNumber(T failedValue),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult invalidPhoneNumber(InvalidPhoneNumber<T> value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult invalidPhoneNumber(InvalidPhoneNumber<T> value),
@@ -60,7 +57,6 @@ abstract class $ValueFailureCopyWith<T, $Res> {
   factory $ValueFailureCopyWith(
           ValueFailure<T> value, $Res Function(ValueFailure<T>) then) =
       _$ValueFailureCopyWithImpl<T, $Res>;
-
   $Res call({T failedValue});
 }
 
@@ -70,7 +66,6 @@ class _$ValueFailureCopyWithImpl<T, $Res>
   _$ValueFailureCopyWithImpl(this._value, this._then);
 
   final ValueFailure<T> _value;
-
   // ignore: unused_field
   final $Res Function(ValueFailure<T>) _then;
 
@@ -91,7 +86,6 @@ abstract class $InvalidPhoneNumberCopyWith<T, $Res>
   factory $InvalidPhoneNumberCopyWith(InvalidPhoneNumber<T> value,
           $Res Function(InvalidPhoneNumber<T>) then) =
       _$InvalidPhoneNumberCopyWithImpl<T, $Res>;
-
   @override
   $Res call({T failedValue});
 }
@@ -211,7 +205,6 @@ abstract class InvalidPhoneNumber<T> implements ValueFailure<T> {
 
   @override
   T get failedValue;
-
   @override
   @JsonKey(ignore: true)
   $InvalidPhoneNumberCopyWith<T, InvalidPhoneNumber<T>> get copyWith;

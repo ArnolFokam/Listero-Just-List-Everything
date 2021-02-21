@@ -3,18 +3,20 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:listero/domain/auth/auth_facade_interface.dart';
 import 'package:listero/domain/auth/auth_failure.dart';
 import 'package:listero/domain/core/value_objects/telephone_number.dart';
 import 'package:meta/meta.dart';
 
 part 'sign_in_bloc.freezed.dart';
-
 part 'sign_in_event.dart';
-
 part 'sign_in_state.dart';
 
+@injectable
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
+  Either<AuthFailure, Unit> failureOrSuccess;
+
   final IAuthFacade _authFacade;
 
   @override
@@ -24,6 +26,61 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
   Stream<SignInState> mapEventToState(
     SignInEvent event,
   ) async* {
-    // TODO: implement mapEventToState
+    yield* event.map(
+      phoneNumberChanged: (e) async* {
+        yield state.copyWith(
+          phoneNumber: PhoneNumber(e.phoneNumber),
+          authFailureOrSuccessOption: none(),
+        );
+      },
+      sendVerificationCodePressed: (e) async* {
+        final bool isPhoneNumberValid = state.phoneNumber.isValid();
+
+        // If phone number is valid,
+        // Submit the phone number for verification
+        if (isPhoneNumberValid) {
+          yield state.copyWith(
+            isSubmitting: true,
+            authFailureOrSuccessOption: none(),
+          );
+
+          failureOrSuccess = await _authFacade.sendVerificationCode(
+            phoneNumber: state.phoneNumber,
+          );
+        }
+        yield state.copyWith(
+          isSubmitting: false,
+          showErrorMessages: true,
+          authFailureOrSuccessOption: optionOf(failureOrSuccess),
+        );
+      },
+      signInWithGooglePressed: (e) async* {
+        yield state.copyWith(
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        );
+        final failureOrSuccess = await _authFacade.signInWithGoogle();
+        yield state.copyWith(
+          isSubmitting: false,
+          authFailureOrSuccessOption: optionOf(failureOrSuccess),
+        );
+      },
+      signInWithVerificationCodePressed: (e) async* {
+        yield state.copyWith(
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        );
+        final failureOrSuccess = await _authFacade.signInWithVerificationCode(
+          verificationId: state.verificationId,
+          smsCode: state.smsCode,
+        );
+        yield state.copyWith(
+          isSubmitting: false,
+          authFailureOrSuccessOption: optionOf(failureOrSuccess),
+          verificationId: '',
+          smsCode: '',
+        );
+      },
+    );
   }
 }
