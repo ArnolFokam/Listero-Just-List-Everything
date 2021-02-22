@@ -21,13 +21,13 @@ class _$SignInEventTearOff {
   }
 
 // ignore: unused_element
-  sendVerificationCodePressed sendVerificationCodePressed() {
-    return const sendVerificationCodePressed();
+  SendVerificationCodePressed sendVerificationCodePressed() {
+    return const SendVerificationCodePressed();
   }
 
 // ignore: unused_element
-  signInWithVerificationCodePressed signInWithVerificationCodePressed() {
-    return const signInWithVerificationCodePressed();
+  SignInWithVerificationCodePressed signInWithVerificationCodePressed() {
+    return const SignInWithVerificationCodePressed();
   }
 
 // ignore: unused_element
@@ -49,7 +49,6 @@ mixin _$SignInEvent {
     @required TResult signInWithVerificationCodePressed(),
     @required TResult signInWithGooglePressed(),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult phoneNumberChanged(String phoneNumber),
@@ -58,24 +57,22 @@ mixin _$SignInEvent {
     TResult signInWithGooglePressed(),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult phoneNumberChanged(PhoneNumberChanged value),
     @required
-        TResult sendVerificationCodePressed(sendVerificationCodePressed value),
+        TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     @required
         TResult signInWithVerificationCodePressed(
-            signInWithVerificationCodePressed value),
+            SignInWithVerificationCodePressed value),
     @required TResult signInWithGooglePressed(SignInWithGooglePressed value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult phoneNumberChanged(PhoneNumberChanged value),
-    TResult sendVerificationCodePressed(sendVerificationCodePressed value),
+    TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     TResult signInWithVerificationCodePressed(
-        signInWithVerificationCodePressed value),
+        SignInWithVerificationCodePressed value),
     TResult signInWithGooglePressed(SignInWithGooglePressed value),
     @required TResult orElse(),
   });
@@ -93,7 +90,6 @@ class _$SignInEventCopyWithImpl<$Res> implements $SignInEventCopyWith<$Res> {
   _$SignInEventCopyWithImpl(this._value, this._then);
 
   final SignInEvent _value;
-
   // ignore: unused_field
   final $Res Function(SignInEvent) _then;
 }
@@ -103,7 +99,6 @@ abstract class $PhoneNumberChangedCopyWith<$Res> {
   factory $PhoneNumberChangedCopyWith(
           PhoneNumberChanged value, $Res Function(PhoneNumberChanged) then) =
       _$PhoneNumberChangedCopyWithImpl<$Res>;
-
   $Res call({String phoneNumber});
 }
 
@@ -194,10 +189,10 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   TResult map<TResult extends Object>({
     @required TResult phoneNumberChanged(PhoneNumberChanged value),
     @required
-        TResult sendVerificationCodePressed(sendVerificationCodePressed value),
+        TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     @required
         TResult signInWithVerificationCodePressed(
-            signInWithVerificationCodePressed value),
+            SignInWithVerificationCodePressed value),
     @required TResult signInWithGooglePressed(SignInWithGooglePressed value),
   }) {
     assert(phoneNumberChanged != null);
@@ -211,9 +206,9 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult phoneNumberChanged(PhoneNumberChanged value),
-    TResult sendVerificationCodePressed(sendVerificationCodePressed value),
+    TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     TResult signInWithVerificationCodePressed(
-        signInWithVerificationCodePressed value),
+        SignInWithVerificationCodePressed value),
     TResult signInWithGooglePressed(SignInWithGooglePressed value),
     @required TResult orElse(),
   }) {
@@ -229,35 +224,34 @@ abstract class PhoneNumberChanged implements SignInEvent {
   const factory PhoneNumberChanged(String phoneNumber) = _$PhoneNumberChanged;
 
   String get phoneNumber;
-
   @JsonKey(ignore: true)
   $PhoneNumberChangedCopyWith<PhoneNumberChanged> get copyWith;
 }
 
 /// @nodoc
-abstract class $sendVerificationCodePressedCopyWith<$Res> {
-  factory $sendVerificationCodePressedCopyWith(
-          sendVerificationCodePressed value,
-          $Res Function(sendVerificationCodePressed) then) =
-      _$sendVerificationCodePressedCopyWithImpl<$Res>;
+abstract class $SendVerificationCodePressedCopyWith<$Res> {
+  factory $SendVerificationCodePressedCopyWith(
+          SendVerificationCodePressed value,
+          $Res Function(SendVerificationCodePressed) then) =
+      _$SendVerificationCodePressedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$sendVerificationCodePressedCopyWithImpl<$Res>
+class _$SendVerificationCodePressedCopyWithImpl<$Res>
     extends _$SignInEventCopyWithImpl<$Res>
-    implements $sendVerificationCodePressedCopyWith<$Res> {
-  _$sendVerificationCodePressedCopyWithImpl(sendVerificationCodePressed _value,
-      $Res Function(sendVerificationCodePressed) _then)
-      : super(_value, (v) => _then(v as sendVerificationCodePressed));
+    implements $SendVerificationCodePressedCopyWith<$Res> {
+  _$SendVerificationCodePressedCopyWithImpl(SendVerificationCodePressed _value,
+      $Res Function(SendVerificationCodePressed) _then)
+      : super(_value, (v) => _then(v as SendVerificationCodePressed));
 
   @override
-  sendVerificationCodePressed get _value =>
-      super._value as sendVerificationCodePressed;
+  SendVerificationCodePressed get _value =>
+      super._value as SendVerificationCodePressed;
 }
 
 /// @nodoc
-class _$sendVerificationCodePressed implements sendVerificationCodePressed {
-  const _$sendVerificationCodePressed();
+class _$SendVerificationCodePressed implements SendVerificationCodePressed {
+  const _$SendVerificationCodePressed();
 
   @override
   String toString() {
@@ -266,7 +260,7 @@ class _$sendVerificationCodePressed implements sendVerificationCodePressed {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is sendVerificationCodePressed);
+    return identical(this, other) || (other is SendVerificationCodePressed);
   }
 
   @override
@@ -308,10 +302,10 @@ class _$sendVerificationCodePressed implements sendVerificationCodePressed {
   TResult map<TResult extends Object>({
     @required TResult phoneNumberChanged(PhoneNumberChanged value),
     @required
-        TResult sendVerificationCodePressed(sendVerificationCodePressed value),
+        TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     @required
         TResult signInWithVerificationCodePressed(
-            signInWithVerificationCodePressed value),
+            SignInWithVerificationCodePressed value),
     @required TResult signInWithGooglePressed(SignInWithGooglePressed value),
   }) {
     assert(phoneNumberChanged != null);
@@ -325,9 +319,9 @@ class _$sendVerificationCodePressed implements sendVerificationCodePressed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult phoneNumberChanged(PhoneNumberChanged value),
-    TResult sendVerificationCodePressed(sendVerificationCodePressed value),
+    TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     TResult signInWithVerificationCodePressed(
-        signInWithVerificationCodePressed value),
+        SignInWithVerificationCodePressed value),
     TResult signInWithGooglePressed(SignInWithGooglePressed value),
     @required TResult orElse(),
   }) {
@@ -339,36 +333,36 @@ class _$sendVerificationCodePressed implements sendVerificationCodePressed {
   }
 }
 
-abstract class sendVerificationCodePressed implements SignInEvent {
-  const factory sendVerificationCodePressed() = _$sendVerificationCodePressed;
+abstract class SendVerificationCodePressed implements SignInEvent {
+  const factory SendVerificationCodePressed() = _$SendVerificationCodePressed;
 }
 
 /// @nodoc
-abstract class $signInWithVerificationCodePressedCopyWith<$Res> {
-  factory $signInWithVerificationCodePressedCopyWith(
-          signInWithVerificationCodePressed value,
-          $Res Function(signInWithVerificationCodePressed) then) =
-      _$signInWithVerificationCodePressedCopyWithImpl<$Res>;
+abstract class $SignInWithVerificationCodePressedCopyWith<$Res> {
+  factory $SignInWithVerificationCodePressedCopyWith(
+          SignInWithVerificationCodePressed value,
+          $Res Function(SignInWithVerificationCodePressed) then) =
+      _$SignInWithVerificationCodePressedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$signInWithVerificationCodePressedCopyWithImpl<$Res>
+class _$SignInWithVerificationCodePressedCopyWithImpl<$Res>
     extends _$SignInEventCopyWithImpl<$Res>
-    implements $signInWithVerificationCodePressedCopyWith<$Res> {
-  _$signInWithVerificationCodePressedCopyWithImpl(
-      signInWithVerificationCodePressed _value,
-      $Res Function(signInWithVerificationCodePressed) _then)
-      : super(_value, (v) => _then(v as signInWithVerificationCodePressed));
+    implements $SignInWithVerificationCodePressedCopyWith<$Res> {
+  _$SignInWithVerificationCodePressedCopyWithImpl(
+      SignInWithVerificationCodePressed _value,
+      $Res Function(SignInWithVerificationCodePressed) _then)
+      : super(_value, (v) => _then(v as SignInWithVerificationCodePressed));
 
   @override
-  signInWithVerificationCodePressed get _value =>
-      super._value as signInWithVerificationCodePressed;
+  SignInWithVerificationCodePressed get _value =>
+      super._value as SignInWithVerificationCodePressed;
 }
 
 /// @nodoc
-class _$signInWithVerificationCodePressed
-    implements signInWithVerificationCodePressed {
-  const _$signInWithVerificationCodePressed();
+class _$SignInWithVerificationCodePressed
+    implements SignInWithVerificationCodePressed {
+  const _$SignInWithVerificationCodePressed();
 
   @override
   String toString() {
@@ -378,7 +372,7 @@ class _$signInWithVerificationCodePressed
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is signInWithVerificationCodePressed);
+        (other is SignInWithVerificationCodePressed);
   }
 
   @override
@@ -420,10 +414,10 @@ class _$signInWithVerificationCodePressed
   TResult map<TResult extends Object>({
     @required TResult phoneNumberChanged(PhoneNumberChanged value),
     @required
-        TResult sendVerificationCodePressed(sendVerificationCodePressed value),
+        TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     @required
         TResult signInWithVerificationCodePressed(
-            signInWithVerificationCodePressed value),
+            SignInWithVerificationCodePressed value),
     @required TResult signInWithGooglePressed(SignInWithGooglePressed value),
   }) {
     assert(phoneNumberChanged != null);
@@ -437,9 +431,9 @@ class _$signInWithVerificationCodePressed
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult phoneNumberChanged(PhoneNumberChanged value),
-    TResult sendVerificationCodePressed(sendVerificationCodePressed value),
+    TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     TResult signInWithVerificationCodePressed(
-        signInWithVerificationCodePressed value),
+        SignInWithVerificationCodePressed value),
     TResult signInWithGooglePressed(SignInWithGooglePressed value),
     @required TResult orElse(),
   }) {
@@ -451,9 +445,9 @@ class _$signInWithVerificationCodePressed
   }
 }
 
-abstract class signInWithVerificationCodePressed implements SignInEvent {
-  const factory signInWithVerificationCodePressed() =
-      _$signInWithVerificationCodePressed;
+abstract class SignInWithVerificationCodePressed implements SignInEvent {
+  const factory SignInWithVerificationCodePressed() =
+      _$SignInWithVerificationCodePressed;
 }
 
 /// @nodoc
@@ -528,10 +522,10 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   TResult map<TResult extends Object>({
     @required TResult phoneNumberChanged(PhoneNumberChanged value),
     @required
-        TResult sendVerificationCodePressed(sendVerificationCodePressed value),
+        TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     @required
         TResult signInWithVerificationCodePressed(
-            signInWithVerificationCodePressed value),
+            SignInWithVerificationCodePressed value),
     @required TResult signInWithGooglePressed(SignInWithGooglePressed value),
   }) {
     assert(phoneNumberChanged != null);
@@ -545,9 +539,9 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult phoneNumberChanged(PhoneNumberChanged value),
-    TResult sendVerificationCodePressed(sendVerificationCodePressed value),
+    TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     TResult signInWithVerificationCodePressed(
-        signInWithVerificationCodePressed value),
+        SignInWithVerificationCodePressed value),
     TResult signInWithGooglePressed(SignInWithGooglePressed value),
     @required TResult orElse(),
   }) {
@@ -593,15 +587,10 @@ const $SignInState = _$SignInStateTearOff();
 /// @nodoc
 mixin _$SignInState {
   PhoneNumber get phoneNumber;
-
   bool get showErrorMessages;
-
   bool get isSubmitting;
-
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
-
   String get verificationId;
-
   String get smsCode;
 
   @JsonKey(ignore: true)
@@ -613,7 +602,6 @@ abstract class $SignInStateCopyWith<$Res> {
   factory $SignInStateCopyWith(
           SignInState value, $Res Function(SignInState) then) =
       _$SignInStateCopyWithImpl<$Res>;
-
   $Res call(
       {PhoneNumber phoneNumber,
       bool showErrorMessages,
@@ -628,7 +616,6 @@ class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
   _$SignInStateCopyWithImpl(this._value, this._then);
 
   final SignInState _value;
-
   // ignore: unused_field
   final $Res Function(SignInState) _then;
 
@@ -667,7 +654,6 @@ abstract class _$SignInStateCopyWith<$Res>
   factory _$SignInStateCopyWith(
           _SignInState value, $Res Function(_SignInState) then) =
       __$SignInStateCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {PhoneNumber phoneNumber,
@@ -803,22 +789,16 @@ abstract class _SignInState implements SignInState {
 
   @override
   PhoneNumber get phoneNumber;
-
   @override
   bool get showErrorMessages;
-
   @override
   bool get isSubmitting;
-
   @override
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
-
   @override
   String get verificationId;
-
   @override
   String get smsCode;
-
   @override
   @JsonKey(ignore: true)
   _$SignInStateCopyWith<_SignInState> get copyWith;

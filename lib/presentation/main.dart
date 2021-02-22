@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'domain/core/value_objects/telephone_number.dart';
+import '../app_config.dart';
+import '../domain/core/value_objects/telephone_number.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: AppConfig.of(context).appName),
     );
   }
 }
@@ -31,6 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter(PhoneNumber phoneNumber) {
     setState(() {
       _counter = phoneNumber.value.getOrElse(() {
+        // ignore: avoid_print
         print('Some failure happened');
         return '+237693846032';
       });
