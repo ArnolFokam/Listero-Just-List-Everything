@@ -1,4 +1,8 @@
-# listero
+# Listero: Just List Everything
+    
+<p align="center">
+  <a href="https://codemagic.io/apps/6033022d3a3b5515893aaab2/6033022d3a3b5515893aaab1/latest_build" target="_blank"><img src="https://api.codemagic.io/apps/6033022d3a3b5515893aaab2/6033022d3a3b5515893aaab1/status_badge.svg" alt="Codemagic build status" /></a>
+</p>
 
 An app that lets you make lists of everything you want and share them with whoever you want. 
 

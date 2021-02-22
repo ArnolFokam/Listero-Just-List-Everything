@@ -7,10 +7,10 @@ abstract class SignInEvent with _$SignInEvent {
       PhoneNumberChanged;
 
   const factory SignInEvent.sendVerificationCodePressed() =
-      sendVerificationCodePressed;
+      SendVerificationCodePressed;
 
   const factory SignInEvent.signInWithVerificationCodePressed() =
-      signInWithVerificationCodePressed;
+      SignInWithVerificationCodePressed;
 
   const factory SignInEvent.signInWithGooglePressed() = SignInWithGooglePressed;
 }
