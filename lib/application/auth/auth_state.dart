@@ -1,6 +1,14 @@
 part of 'auth_bloc.dart';
 
-@immutable
-abstract class AuthState {}
+@freezed
+@injectable
+abstract class AuthState with _$AuthState {
+  @factoryMethod
+  const factory AuthState.initial() = Initial;
 
-class AuthInitial extends AuthState {}
+  @factoryMethod
+  const factory AuthState.authenticated() = Authenticated;
+
+  @factoryMethod
+  const factory AuthState.unauthenticated() = Unauthenticated;
+}
