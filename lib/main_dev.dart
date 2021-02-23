@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'app_config.dart';
 import 'environment.dart';
 import 'injection.dart';
-import 'presentation/main.dart';
+import 'presentation/app.dart';
 
 Future<void> main() async {
   configureInjection(Environment.dev);
