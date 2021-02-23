@@ -1,10 +1,12 @@
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' hide User;
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:listero/domain/auth/auth_facade_interface.dart';
 import 'package:listero/domain/auth/auth_failure.dart';
+import 'package:listero/domain/auth/models/user.dart';
 import 'package:listero/domain/core/value_objects/telephone_number.dart';
+import 'package:listero/infrastructure/auth/firebase_user_mapper.dart';
 
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
@@ -12,6 +14,10 @@ class FirebaseAuthFacade implements IAuthFacade {
   final GoogleSignIn _googleSignIn;
 
   FirebaseAuthFacade(this._firebaseAuth, this._googleSignIn);
+
+  @override
+  Option<User> getSignedInUser() =>
+      optionOf(_firebaseAuth.currentUser?.toDomain());
 
   @override
   Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
@@ -89,4 +95,8 @@ class FirebaseAuthFacade implements IAuthFacade {
       }
     }
   }
+
+  @override
+  Future<void> signOut() =>
+      Future.wait([_googleSignIn.signOut(), _firebaseAuth.signOut()]);
 }
