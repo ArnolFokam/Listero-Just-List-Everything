@@ -1,9 +1,11 @@
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
-import 'auth/main.dart' as application_auth_test;
+import 'auth_bloc_test.dart' as auth_bloc_test;
+import 'sign_in_bloc_test.dart' as sign_in_bloc_test;
 
 void main() {
-  group('Application Layer', () {
-    application_auth_test.main();
+  group('Authentication', () {
+    auth_bloc_test.main();
+    sign_in_bloc_test.main();
   });
 }
