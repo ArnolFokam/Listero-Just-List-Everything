@@ -48,20 +48,34 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> sendVerificationCode(
+  Future<Either<AuthFailure, String>> sendVerificationCode(
       {PhoneNumber phoneNumber}) async {
     final phoneNumberValue = phoneNumber.getOrCrash();
     try {
-      // TODO: Find a way to get the verification code.
+      String verificationIdReceived;
+      // TODO: Find a way to use ANDROID'S auto-retrieval verification code in DDD
+      /// dart```
+      /// await auth.verifyPhoneNumber(
+      //   phoneNumber: '+44 7123 123 456',
+      //   verificationCompleted: (PhoneAuthCredential credential) async {
+      //     // ANDROID ONLY!
+      //
+      //     // Sign the user in (or link) with the auto-generated credential
+      //     await auth.signInWithCredential(credential);
+      //   },
+      // );
+      /// ```
       return _firebaseAuth
           .verifyPhoneNumber(
             phoneNumber: phoneNumberValue,
             verificationCompleted: (PhoneAuthCredential credential) async {},
             codeSent: (String verificationId, int forceResendingToken) {},
-            codeAutoRetrievalTimeout: (String verificationId) {},
+            codeAutoRetrievalTimeout: (String verificationId) {
+              verificationIdReceived = verificationId;
+            },
             verificationFailed: (FirebaseAuthException error) {},
           )
-          .then((value) => right(unit));
+          .then((_) => right(verificationIdReceived));
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case "invalid-phone-number":

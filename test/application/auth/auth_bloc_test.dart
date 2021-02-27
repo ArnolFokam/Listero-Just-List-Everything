@@ -10,7 +10,7 @@ import 'package:mockito/mockito.dart';
 class MockAuthFacade extends Mock implements IAuthFacade {}
 
 void main() {
-  group('AuthBloc Start/Close', () {
+  group('AuthBloc', () {
     AuthBloc authenticationBloc;
     MockAuthFacade mockAuthFacade;
 
@@ -40,26 +40,9 @@ void main() {
       );
       authenticationBloc.close();
     });
-  });
 
-  group('AuthBloc Authentication', () {
-    AuthBloc authenticationBloc;
-    MockAuthFacade mockAuthFacade;
-
-    setUp(() {
-      mockAuthFacade = MockAuthFacade();
-      authenticationBloc = AuthBloc(
-        const AuthState.initial(),
-        mockAuthFacade,
-      );
-    });
-
-    tearDown(() {
-      authenticationBloc?.close();
-    });
-
-    blocTest(
-      'gives the correct auth state of the app',
+    blocTest<AuthBloc, AuthState>(
+      'gives the correct authentication state on sign in/out',
       build: () {
         // Mock auth facade as if there was a user connected
         when(mockAuthFacade.getSignedInUser()).thenAnswer(

@@ -8,7 +8,7 @@ import 'models/user.dart';
 abstract class IAuthFacade {
   Option<User> getSignedInUser();
 
-  Future<Either<AuthFailure, Unit>> sendVerificationCode(
+  Future<Either<AuthFailure, String>> sendVerificationCode(
       {@required PhoneNumber phoneNumber});
 
   Future<Either<AuthFailure, Unit>> signInWithVerificationCode({@required String verificationId, @required String smsCode});

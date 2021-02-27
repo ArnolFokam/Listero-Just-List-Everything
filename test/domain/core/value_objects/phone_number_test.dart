@@ -4,7 +4,7 @@ import 'package:listero/domain/core/value_objects/telephone_number.dart';
 import 'package:matcher/matcher.dart' as matcher;
 
 void main() {
-  group('Value Object: Phone Number', () {
+  group('Phone Number', () {
     test('should crash when phone number is empty', () {
       expect(() => PhoneNumber('').getOrCrash(),
           throwsA(const matcher.TypeMatcher<UnexpectedValueError>()));

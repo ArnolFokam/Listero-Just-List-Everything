@@ -22,6 +22,8 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
   @override
   SignInBloc(SignInState initialState, this._authFacade) : super(initialState);
 
+  SignInState get initialState => SignInState.initial();
+
   @override
   Stream<SignInState> mapEventToState(
     SignInEvent event,
@@ -33,8 +35,15 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
           authFailureOrSuccessOption: none(),
         );
       },
+      smsCodeChanged: (e) async* {
+        yield state.copyWith(
+          smsCode: e.smsCode,
+          authFailureOrSuccessOption: none(),
+        );
+      },
       sendVerificationCodePressed: (e) async* {
         final bool isPhoneNumberValid = state.phoneNumber.isValid();
+        String verificationId;
 
         // If phone number is valid,
         // Submit the phone number for verification
@@ -44,14 +53,21 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
             authFailureOrSuccessOption: none(),
           );
 
-          failureOrSuccess = await _authFacade.sendVerificationCode(
+          failureOrSuccess = await _authFacade
+              .sendVerificationCode(
             phoneNumber: state.phoneNumber,
-          );
+          )
+              .then((value) {
+            verificationId = value.getOrElse(() => '');
+            return right(unit);
+          });
         }
+
         yield state.copyWith(
           isSubmitting: false,
           showErrorMessages: true,
           authFailureOrSuccessOption: optionOf(failureOrSuccess),
+          verificationId: verificationId,
         );
       },
       signInWithGooglePressed: (e) async* {

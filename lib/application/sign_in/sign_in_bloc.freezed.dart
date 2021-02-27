@@ -21,6 +21,13 @@ class _$SignInEventTearOff {
   }
 
 // ignore: unused_element
+  SmsCodeChanged smsCodeChanged(String smsCode) {
+    return SmsCodeChanged(
+      smsCode,
+    );
+  }
+
+// ignore: unused_element
   SendVerificationCodePressed sendVerificationCodePressed() {
     return const SendVerificationCodePressed();
   }
@@ -45,6 +52,7 @@ mixin _$SignInEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult phoneNumberChanged(String phoneNumber),
+    @required TResult smsCodeChanged(String smsCode),
     @required TResult sendVerificationCodePressed(),
     @required TResult signInWithVerificationCodePressed(),
     @required TResult signInWithGooglePressed(),
@@ -52,6 +60,7 @@ mixin _$SignInEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult phoneNumberChanged(String phoneNumber),
+    TResult smsCodeChanged(String smsCode),
     TResult sendVerificationCodePressed(),
     TResult signInWithVerificationCodePressed(),
     TResult signInWithGooglePressed(),
@@ -60,6 +69,7 @@ mixin _$SignInEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult phoneNumberChanged(PhoneNumberChanged value),
+    @required TResult smsCodeChanged(SmsCodeChanged value),
     @required
         TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     @required
@@ -70,6 +80,7 @@ mixin _$SignInEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult phoneNumberChanged(PhoneNumberChanged value),
+    TResult smsCodeChanged(SmsCodeChanged value),
     TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     TResult signInWithVerificationCodePressed(
         SignInWithVerificationCodePressed value),
@@ -157,11 +168,13 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult phoneNumberChanged(String phoneNumber),
+    @required TResult smsCodeChanged(String smsCode),
     @required TResult sendVerificationCodePressed(),
     @required TResult signInWithVerificationCodePressed(),
     @required TResult signInWithGooglePressed(),
   }) {
     assert(phoneNumberChanged != null);
+    assert(smsCodeChanged != null);
     assert(sendVerificationCodePressed != null);
     assert(signInWithVerificationCodePressed != null);
     assert(signInWithGooglePressed != null);
@@ -172,6 +185,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult phoneNumberChanged(String phoneNumber),
+    TResult smsCodeChanged(String smsCode),
     TResult sendVerificationCodePressed(),
     TResult signInWithVerificationCodePressed(),
     TResult signInWithGooglePressed(),
@@ -188,6 +202,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult phoneNumberChanged(PhoneNumberChanged value),
+    @required TResult smsCodeChanged(SmsCodeChanged value),
     @required
         TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     @required
@@ -196,6 +211,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     @required TResult signInWithGooglePressed(SignInWithGooglePressed value),
   }) {
     assert(phoneNumberChanged != null);
+    assert(smsCodeChanged != null);
     assert(sendVerificationCodePressed != null);
     assert(signInWithVerificationCodePressed != null);
     assert(signInWithGooglePressed != null);
@@ -206,6 +222,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult phoneNumberChanged(PhoneNumberChanged value),
+    TResult smsCodeChanged(SmsCodeChanged value),
     TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     TResult signInWithVerificationCodePressed(
         SignInWithVerificationCodePressed value),
@@ -224,8 +241,149 @@ abstract class PhoneNumberChanged implements SignInEvent {
   const factory PhoneNumberChanged(String phoneNumber) = _$PhoneNumberChanged;
 
   String get phoneNumber;
+
   @JsonKey(ignore: true)
   $PhoneNumberChangedCopyWith<PhoneNumberChanged> get copyWith;
+}
+
+/// @nodoc
+abstract class $SmsCodeChangedCopyWith<$Res> {
+  factory $SmsCodeChangedCopyWith(
+          SmsCodeChanged value, $Res Function(SmsCodeChanged) then) =
+      _$SmsCodeChangedCopyWithImpl<$Res>;
+
+  $Res call({String smsCode});
+}
+
+/// @nodoc
+class _$SmsCodeChangedCopyWithImpl<$Res> extends _$SignInEventCopyWithImpl<$Res>
+    implements $SmsCodeChangedCopyWith<$Res> {
+  _$SmsCodeChangedCopyWithImpl(
+      SmsCodeChanged _value, $Res Function(SmsCodeChanged) _then)
+      : super(_value, (v) => _then(v as SmsCodeChanged));
+
+  @override
+  SmsCodeChanged get _value => super._value as SmsCodeChanged;
+
+  @override
+  $Res call({
+    Object smsCode = freezed,
+  }) {
+    return _then(SmsCodeChanged(
+      smsCode == freezed ? _value.smsCode : smsCode as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$SmsCodeChanged implements SmsCodeChanged {
+  const _$SmsCodeChanged(this.smsCode) : assert(smsCode != null);
+
+  @override
+  final String smsCode;
+
+  @override
+  String toString() {
+    return 'SignInEvent.smsCodeChanged(smsCode: $smsCode)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SmsCodeChanged &&
+            (identical(other.smsCode, smsCode) ||
+                const DeepCollectionEquality().equals(other.smsCode, smsCode)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(smsCode);
+
+  @JsonKey(ignore: true)
+  @override
+  $SmsCodeChangedCopyWith<SmsCodeChanged> get copyWith =>
+      _$SmsCodeChangedCopyWithImpl<SmsCodeChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult phoneNumberChanged(String phoneNumber),
+    @required TResult smsCodeChanged(String smsCode),
+    @required TResult sendVerificationCodePressed(),
+    @required TResult signInWithVerificationCodePressed(),
+    @required TResult signInWithGooglePressed(),
+  }) {
+    assert(phoneNumberChanged != null);
+    assert(smsCodeChanged != null);
+    assert(sendVerificationCodePressed != null);
+    assert(signInWithVerificationCodePressed != null);
+    assert(signInWithGooglePressed != null);
+    return smsCodeChanged(smsCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult phoneNumberChanged(String phoneNumber),
+    TResult smsCodeChanged(String smsCode),
+    TResult sendVerificationCodePressed(),
+    TResult signInWithVerificationCodePressed(),
+    TResult signInWithGooglePressed(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (smsCodeChanged != null) {
+      return smsCodeChanged(smsCode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult phoneNumberChanged(PhoneNumberChanged value),
+    @required TResult smsCodeChanged(SmsCodeChanged value),
+    @required
+        TResult sendVerificationCodePressed(SendVerificationCodePressed value),
+    @required
+        TResult signInWithVerificationCodePressed(
+            SignInWithVerificationCodePressed value),
+    @required TResult signInWithGooglePressed(SignInWithGooglePressed value),
+  }) {
+    assert(phoneNumberChanged != null);
+    assert(smsCodeChanged != null);
+    assert(sendVerificationCodePressed != null);
+    assert(signInWithVerificationCodePressed != null);
+    assert(signInWithGooglePressed != null);
+    return smsCodeChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult phoneNumberChanged(PhoneNumberChanged value),
+    TResult smsCodeChanged(SmsCodeChanged value),
+    TResult sendVerificationCodePressed(SendVerificationCodePressed value),
+    TResult signInWithVerificationCodePressed(
+        SignInWithVerificationCodePressed value),
+    TResult signInWithGooglePressed(SignInWithGooglePressed value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (smsCodeChanged != null) {
+      return smsCodeChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SmsCodeChanged implements SignInEvent {
+  const factory SmsCodeChanged(String smsCode) = _$SmsCodeChanged;
+
+  String get smsCode;
+
+  @JsonKey(ignore: true)
+  $SmsCodeChangedCopyWith<SmsCodeChanged> get copyWith;
 }
 
 /// @nodoc
@@ -270,11 +428,13 @@ class _$SendVerificationCodePressed implements SendVerificationCodePressed {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult phoneNumberChanged(String phoneNumber),
+    @required TResult smsCodeChanged(String smsCode),
     @required TResult sendVerificationCodePressed(),
     @required TResult signInWithVerificationCodePressed(),
     @required TResult signInWithGooglePressed(),
   }) {
     assert(phoneNumberChanged != null);
+    assert(smsCodeChanged != null);
     assert(sendVerificationCodePressed != null);
     assert(signInWithVerificationCodePressed != null);
     assert(signInWithGooglePressed != null);
@@ -285,6 +445,7 @@ class _$SendVerificationCodePressed implements SendVerificationCodePressed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult phoneNumberChanged(String phoneNumber),
+    TResult smsCodeChanged(String smsCode),
     TResult sendVerificationCodePressed(),
     TResult signInWithVerificationCodePressed(),
     TResult signInWithGooglePressed(),
@@ -301,6 +462,7 @@ class _$SendVerificationCodePressed implements SendVerificationCodePressed {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult phoneNumberChanged(PhoneNumberChanged value),
+    @required TResult smsCodeChanged(SmsCodeChanged value),
     @required
         TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     @required
@@ -309,6 +471,7 @@ class _$SendVerificationCodePressed implements SendVerificationCodePressed {
     @required TResult signInWithGooglePressed(SignInWithGooglePressed value),
   }) {
     assert(phoneNumberChanged != null);
+    assert(smsCodeChanged != null);
     assert(sendVerificationCodePressed != null);
     assert(signInWithVerificationCodePressed != null);
     assert(signInWithGooglePressed != null);
@@ -319,6 +482,7 @@ class _$SendVerificationCodePressed implements SendVerificationCodePressed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult phoneNumberChanged(PhoneNumberChanged value),
+    TResult smsCodeChanged(SmsCodeChanged value),
     TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     TResult signInWithVerificationCodePressed(
         SignInWithVerificationCodePressed value),
@@ -382,11 +546,13 @@ class _$SignInWithVerificationCodePressed
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult phoneNumberChanged(String phoneNumber),
+    @required TResult smsCodeChanged(String smsCode),
     @required TResult sendVerificationCodePressed(),
     @required TResult signInWithVerificationCodePressed(),
     @required TResult signInWithGooglePressed(),
   }) {
     assert(phoneNumberChanged != null);
+    assert(smsCodeChanged != null);
     assert(sendVerificationCodePressed != null);
     assert(signInWithVerificationCodePressed != null);
     assert(signInWithGooglePressed != null);
@@ -397,6 +563,7 @@ class _$SignInWithVerificationCodePressed
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult phoneNumberChanged(String phoneNumber),
+    TResult smsCodeChanged(String smsCode),
     TResult sendVerificationCodePressed(),
     TResult signInWithVerificationCodePressed(),
     TResult signInWithGooglePressed(),
@@ -413,6 +580,7 @@ class _$SignInWithVerificationCodePressed
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult phoneNumberChanged(PhoneNumberChanged value),
+    @required TResult smsCodeChanged(SmsCodeChanged value),
     @required
         TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     @required
@@ -421,6 +589,7 @@ class _$SignInWithVerificationCodePressed
     @required TResult signInWithGooglePressed(SignInWithGooglePressed value),
   }) {
     assert(phoneNumberChanged != null);
+    assert(smsCodeChanged != null);
     assert(sendVerificationCodePressed != null);
     assert(signInWithVerificationCodePressed != null);
     assert(signInWithGooglePressed != null);
@@ -431,6 +600,7 @@ class _$SignInWithVerificationCodePressed
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult phoneNumberChanged(PhoneNumberChanged value),
+    TResult smsCodeChanged(SmsCodeChanged value),
     TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     TResult signInWithVerificationCodePressed(
         SignInWithVerificationCodePressed value),
@@ -490,11 +660,13 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult phoneNumberChanged(String phoneNumber),
+    @required TResult smsCodeChanged(String smsCode),
     @required TResult sendVerificationCodePressed(),
     @required TResult signInWithVerificationCodePressed(),
     @required TResult signInWithGooglePressed(),
   }) {
     assert(phoneNumberChanged != null);
+    assert(smsCodeChanged != null);
     assert(sendVerificationCodePressed != null);
     assert(signInWithVerificationCodePressed != null);
     assert(signInWithGooglePressed != null);
@@ -505,6 +677,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult phoneNumberChanged(String phoneNumber),
+    TResult smsCodeChanged(String smsCode),
     TResult sendVerificationCodePressed(),
     TResult signInWithVerificationCodePressed(),
     TResult signInWithGooglePressed(),
@@ -521,6 +694,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult phoneNumberChanged(PhoneNumberChanged value),
+    @required TResult smsCodeChanged(SmsCodeChanged value),
     @required
         TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     @required
@@ -529,6 +703,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     @required TResult signInWithGooglePressed(SignInWithGooglePressed value),
   }) {
     assert(phoneNumberChanged != null);
+    assert(smsCodeChanged != null);
     assert(sendVerificationCodePressed != null);
     assert(signInWithVerificationCodePressed != null);
     assert(signInWithGooglePressed != null);
@@ -539,6 +714,7 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult phoneNumberChanged(PhoneNumberChanged value),
+    TResult smsCodeChanged(SmsCodeChanged value),
     TResult sendVerificationCodePressed(SendVerificationCodePressed value),
     TResult signInWithVerificationCodePressed(
         SignInWithVerificationCodePressed value),
@@ -563,17 +739,17 @@ class _$SignInStateTearOff {
 
 // ignore: unused_element
   _SignInState call(
-      {@required PhoneNumber phoneNumber,
-      @required bool showErrorMessages,
+      {@required bool showErrorMessages,
       @required bool isSubmitting,
       @required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
-      @required String verificationId,
-      @required String smsCode}) {
+      PhoneNumber phoneNumber,
+      String verificationId,
+      String smsCode}) {
     return _SignInState(
-      phoneNumber: phoneNumber,
       showErrorMessages: showErrorMessages,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
+      phoneNumber: phoneNumber,
       verificationId: verificationId,
       smsCode: smsCode,
     );
@@ -586,11 +762,16 @@ const $SignInState = _$SignInStateTearOff();
 
 /// @nodoc
 mixin _$SignInState {
-  PhoneNumber get phoneNumber;
   bool get showErrorMessages;
+
   bool get isSubmitting;
+
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
+
+  PhoneNumber get phoneNumber;
+
   String get verificationId;
+
   String get smsCode;
 
   @JsonKey(ignore: true)
@@ -603,10 +784,10 @@ abstract class $SignInStateCopyWith<$Res> {
           SignInState value, $Res Function(SignInState) then) =
       _$SignInStateCopyWithImpl<$Res>;
   $Res call(
-      {PhoneNumber phoneNumber,
-      bool showErrorMessages,
+      {bool showErrorMessages,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+      PhoneNumber phoneNumber,
       String verificationId,
       String smsCode});
 }
@@ -621,17 +802,14 @@ class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object phoneNumber = freezed,
     Object showErrorMessages = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
+    Object phoneNumber = freezed,
     Object verificationId = freezed,
     Object smsCode = freezed,
   }) {
     return _then(_value.copyWith(
-      phoneNumber: phoneNumber == freezed
-          ? _value.phoneNumber
-          : phoneNumber as PhoneNumber,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages as bool,
@@ -640,6 +818,9 @@ class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption as Option<Either<AuthFailure, Unit>>,
+      phoneNumber: phoneNumber == freezed
+          ? _value.phoneNumber
+          : phoneNumber as PhoneNumber,
       verificationId: verificationId == freezed
           ? _value.verificationId
           : verificationId as String,
@@ -656,10 +837,10 @@ abstract class _$SignInStateCopyWith<$Res>
       __$SignInStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {PhoneNumber phoneNumber,
-      bool showErrorMessages,
+      {bool showErrorMessages,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+      PhoneNumber phoneNumber,
       String verificationId,
       String smsCode});
 }
@@ -676,17 +857,14 @@ class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object phoneNumber = freezed,
     Object showErrorMessages = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
+    Object phoneNumber = freezed,
     Object verificationId = freezed,
     Object smsCode = freezed,
   }) {
     return _then(_SignInState(
-      phoneNumber: phoneNumber == freezed
-          ? _value.phoneNumber
-          : phoneNumber as PhoneNumber,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages as bool,
@@ -695,6 +873,9 @@ class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption as Option<Either<AuthFailure, Unit>>,
+      phoneNumber: phoneNumber == freezed
+          ? _value.phoneNumber
+          : phoneNumber as PhoneNumber,
       verificationId: verificationId == freezed
           ? _value.verificationId
           : verificationId as String,
@@ -706,21 +887,16 @@ class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
 /// @nodoc
 class _$_SignInState implements _SignInState {
   const _$_SignInState(
-      {@required this.phoneNumber,
-      @required this.showErrorMessages,
+      {@required this.showErrorMessages,
       @required this.isSubmitting,
       @required this.authFailureOrSuccessOption,
-      @required this.verificationId,
-      @required this.smsCode})
-      : assert(phoneNumber != null),
-        assert(showErrorMessages != null),
+      this.phoneNumber,
+      this.verificationId,
+      this.smsCode})
+      : assert(showErrorMessages != null),
         assert(isSubmitting != null),
-        assert(authFailureOrSuccessOption != null),
-        assert(verificationId != null),
-        assert(smsCode != null);
+        assert(authFailureOrSuccessOption != null);
 
-  @override
-  final PhoneNumber phoneNumber;
   @override
   final bool showErrorMessages;
   @override
@@ -728,22 +904,21 @@ class _$_SignInState implements _SignInState {
   @override
   final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
   @override
+  final PhoneNumber phoneNumber;
+  @override
   final String verificationId;
   @override
   final String smsCode;
 
   @override
   String toString() {
-    return 'SignInState(phoneNumber: $phoneNumber, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption, verificationId: $verificationId, smsCode: $smsCode)';
+    return 'SignInState(showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption, phoneNumber: $phoneNumber, verificationId: $verificationId, smsCode: $smsCode)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _SignInState &&
-            (identical(other.phoneNumber, phoneNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.phoneNumber, phoneNumber)) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 const DeepCollectionEquality()
                     .equals(other.showErrorMessages, showErrorMessages)) &&
@@ -755,6 +930,9 @@ class _$_SignInState implements _SignInState {
                 const DeepCollectionEquality().equals(
                     other.authFailureOrSuccessOption,
                     authFailureOrSuccessOption)) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                const DeepCollectionEquality()
+                    .equals(other.phoneNumber, phoneNumber)) &&
             (identical(other.verificationId, verificationId) ||
                 const DeepCollectionEquality()
                     .equals(other.verificationId, verificationId)) &&
@@ -765,10 +943,10 @@ class _$_SignInState implements _SignInState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(phoneNumber) ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption) ^
+      const DeepCollectionEquality().hash(phoneNumber) ^
       const DeepCollectionEquality().hash(verificationId) ^
       const DeepCollectionEquality().hash(smsCode);
 
@@ -780,25 +958,31 @@ class _$_SignInState implements _SignInState {
 
 abstract class _SignInState implements SignInState {
   const factory _SignInState(
-      {@required PhoneNumber phoneNumber,
-      @required bool showErrorMessages,
+      {@required bool showErrorMessages,
       @required bool isSubmitting,
       @required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
-      @required String verificationId,
-      @required String smsCode}) = _$_SignInState;
+      PhoneNumber phoneNumber,
+      String verificationId,
+      String smsCode}) = _$_SignInState;
+
+  @override
+  bool get showErrorMessages;
+
+  @override
+  bool get isSubmitting;
+
+  @override
+  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
 
   @override
   PhoneNumber get phoneNumber;
-  @override
-  bool get showErrorMessages;
-  @override
-  bool get isSubmitting;
-  @override
-  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
+
   @override
   String get verificationId;
+
   @override
   String get smsCode;
+
   @override
   @JsonKey(ignore: true)
   _$SignInStateCopyWith<_SignInState> get copyWith;
