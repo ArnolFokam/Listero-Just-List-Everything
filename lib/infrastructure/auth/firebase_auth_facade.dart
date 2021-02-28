@@ -78,10 +78,11 @@ class FirebaseAuthFacade implements IAuthFacade {
           .then((_) => right(verificationIdReceived));
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
-        case "invalid-phone-number":
+        // TODO: Create a map to automatically test this errors
+        case "auth/invalid-phone-number":
           return left(const AuthFailure.invalidPhoneNumber());
           break;
-        case "phone-number-already-exists":
+        case "auth/phone-number-already-exists":
           return left(const AuthFailure.phoneNumberAlreadyInUse());
           break;
         default:

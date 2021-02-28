@@ -241,7 +241,6 @@ abstract class PhoneNumberChanged implements SignInEvent {
   const factory PhoneNumberChanged(String phoneNumber) = _$PhoneNumberChanged;
 
   String get phoneNumber;
-
   @JsonKey(ignore: true)
   $PhoneNumberChangedCopyWith<PhoneNumberChanged> get copyWith;
 }
@@ -251,7 +250,6 @@ abstract class $SmsCodeChangedCopyWith<$Res> {
   factory $SmsCodeChangedCopyWith(
           SmsCodeChanged value, $Res Function(SmsCodeChanged) then) =
       _$SmsCodeChangedCopyWithImpl<$Res>;
-
   $Res call({String smsCode});
 }
 
@@ -381,7 +379,6 @@ abstract class SmsCodeChanged implements SignInEvent {
   const factory SmsCodeChanged(String smsCode) = _$SmsCodeChanged;
 
   String get smsCode;
-
   @JsonKey(ignore: true)
   $SmsCodeChangedCopyWith<SmsCodeChanged> get copyWith;
 }
@@ -763,15 +760,10 @@ const $SignInState = _$SignInStateTearOff();
 /// @nodoc
 mixin _$SignInState {
   bool get showErrorMessages;
-
   bool get isSubmitting;
-
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
-
   PhoneNumber get phoneNumber;
-
   String get verificationId;
-
   String get smsCode;
 
   @JsonKey(ignore: true)
@@ -967,22 +959,16 @@ abstract class _SignInState implements SignInState {
 
   @override
   bool get showErrorMessages;
-
   @override
   bool get isSubmitting;
-
   @override
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
-
   @override
   PhoneNumber get phoneNumber;
-
   @override
   String get verificationId;
-
   @override
   String get smsCode;
-
   @override
   @JsonKey(ignore: true)
   _$SignInStateCopyWith<_SignInState> get copyWith;

@@ -46,7 +46,7 @@ void main() {
     });
 
     blocTest<SignInBloc, SignInState>(
-      'does not permit the user to sign in with incorrect phone number (!= E.165 format)',
+      'does not permit the user to sign in with incorrect phone number (!= E.164 format)',
       build: () {
         signInBloc
             .add(const SignInEvent.phoneNumberChanged(invalidPhoneNumber));
