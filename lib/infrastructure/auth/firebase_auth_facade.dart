@@ -1,10 +1,12 @@
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' hide User;
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:listero/domain/auth/auth_facade_interface.dart';
 import 'package:listero/domain/auth/auth_failure.dart';
+import 'package:listero/domain/auth/models/user.dart';
 import 'package:listero/domain/core/value_objects/telephone_number.dart';
+import 'package:listero/infrastructure/auth/firebase_user_mapper.dart';
 
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
@@ -12,6 +14,10 @@ class FirebaseAuthFacade implements IAuthFacade {
   final GoogleSignIn _googleSignIn;
 
   FirebaseAuthFacade(this._firebaseAuth, this._googleSignIn);
+
+  @override
+  Option<User> getSignedInUser() =>
+      optionOf<User>(_firebaseAuth.currentUser?.toDomain());
 
   @override
   Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
@@ -42,26 +48,41 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> sendVerificationCode(
+  Future<Either<AuthFailure, String>> sendVerificationCode(
       {PhoneNumber phoneNumber}) async {
     final phoneNumberValue = phoneNumber.getOrCrash();
     try {
-      // TODO: Find a way to get the verification code.
+      String verificationIdReceived;
+      // TODO: Find a way to use ANDROID'S auto-retrieval verification code in DDD
+      /// dart```
+      /// await auth.verifyPhoneNumber(
+      //   phoneNumber: '+44 7123 123 456',
+      //   verificationCompleted: (PhoneAuthCredential credential) async {
+      //     // ANDROID ONLY!
+      //
+      //     // Sign the user in (or link) with the auto-generated credential
+      //     await auth.signInWithCredential(credential);
+      //   },
+      // );
+      /// ```
       return _firebaseAuth
           .verifyPhoneNumber(
             phoneNumber: phoneNumberValue,
             verificationCompleted: (PhoneAuthCredential credential) async {},
             codeSent: (String verificationId, int forceResendingToken) {},
-            codeAutoRetrievalTimeout: (String verificationId) {},
+            codeAutoRetrievalTimeout: (String verificationId) {
+              verificationIdReceived = verificationId;
+            },
             verificationFailed: (FirebaseAuthException error) {},
           )
-          .then((value) => right(unit));
+          .then((_) => right(verificationIdReceived));
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
-        case "invalid-phone-number":
+        // TODO: Create a map to automatically test this errors
+        case "auth/invalid-phone-number":
           return left(const AuthFailure.invalidPhoneNumber());
           break;
-        case "phone-number-already-exists":
+        case "auth/phone-number-already-exists":
           return left(const AuthFailure.phoneNumberAlreadyInUse());
           break;
         default:
@@ -89,4 +110,8 @@ class FirebaseAuthFacade implements IAuthFacade {
       }
     }
   }
+
+  @override
+  Future<void> signOut() =>
+      Future.wait([_googleSignIn.signOut(), _firebaseAuth.signOut()]);
 }

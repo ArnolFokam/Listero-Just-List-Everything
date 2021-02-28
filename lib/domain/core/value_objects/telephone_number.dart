@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:listero/domain/core/failures.dart';
-import 'package:listero/domain/core/value_object.dart';
-import 'package:listero/domain/core/value_validators.dart';
+import 'package:listero/domain/core/value_objects/value_object.dart';
+
+import 'package:listero/domain/core/value_validator.dart';
 
 class PhoneNumber extends ValueObject<String> {
   @override
@@ -10,7 +11,7 @@ class PhoneNumber extends ValueObject<String> {
   factory PhoneNumber(String input) {
     assert(input != null);
     return PhoneNumber._(
-      validatePhoneNumber(input),
+      ValueValidator.validatePhoneNumber(input),
     );
   }
 
